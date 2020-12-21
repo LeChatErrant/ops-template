@@ -1,0 +1,19 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard-ingress
+  labels:
+    lechaterrant.com/app: traefik
+    lecharerrant.com/stack: traefik
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`traefik.lechaterrant.com`)
+      kind: Rule
+      services:
+        - name: traefik-dashboard-service
+          port: 8080
+      middlewares:
+        - name: admin-auth

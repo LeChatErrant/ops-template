@@ -1,0 +1,11 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: admin-auth
+  labels:
+    lechaterrant.com/app: traefik
+    lecharerrant.com/stack: traefik
+spec:
+  basicAuth:
+    secret: auth-secret

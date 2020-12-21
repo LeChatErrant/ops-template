@@ -1,8 +1,6 @@
-# Ops
+# Kubectl cheat sheet
 
-> Kubectl cheat sheet
-
-Everybody have the right to have a little help...
+> Everybody can need a little help...
 
 ## Auto complete
 

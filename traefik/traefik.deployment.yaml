@@ -5,7 +5,7 @@ metadata:
   name: traefik-ingress-controller
   labels:
     lechaterrant.com/app: traefik
-    lecharerrant.com/stack: traefik
+    lechaterrant.com/stack: traefik
   annotations:
     lechaterrant.com/load-balancer: traefik
 spec:
@@ -18,7 +18,7 @@ spec:
       name: traefik-ingress-lb
       labels:
         lechaterrant.com/app: traefik
-        lecharerrant.com/stack: traefik
+        lechaterrant.com/stack: traefik
     spec:
       serviceAccountName: traefik-ingress-controller
       terminationGracePeriodSeconds: 60

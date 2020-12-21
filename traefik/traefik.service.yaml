@@ -5,7 +5,7 @@ metadata:
   name: traefik-ingress-service
   labels:
     lechaterrant.com/app: traefik
-    lecharerrant.com/stack: traefik
+    lechaterrant.com/stack: traefik
   annotations:
     lechaterrant.com/load-balancer: traefik
 spec:

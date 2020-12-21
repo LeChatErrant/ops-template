@@ -5,7 +5,7 @@ metadata:
   name: traefik-dashboard-service
   labels:
     lechaterrant.com/app: traefik
-    lecharerrant.com/stack: traefik
+    lechaterrant.com/stack: traefik
 spec:
   type: ClusterIP
   selector:

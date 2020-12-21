@@ -3,6 +3,8 @@ kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: traefik-ingress-controller
+  annotations:
+    lechaterrant.com/load-balancer: traefik
 rules:
   - apiGroups:
       - ""
@@ -47,6 +49,8 @@ kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: traefik-ingress-controller
+  annotations:
+    lechaterrant.com/load-balancer: traefik
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -60,3 +64,5 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: traefik-ingress-controller
+  annotations:
+    lechaterrant.com/load-balancer: traefik

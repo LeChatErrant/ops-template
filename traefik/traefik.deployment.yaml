@@ -6,6 +6,8 @@ metadata:
   labels:
     lechaterrant.com/app: traefik
     lecharerrant.com/stack: traefik
+  annotations:
+    lechaterrant.com/load-balancer: traefik
 spec:
   replicas: 2
   selector:

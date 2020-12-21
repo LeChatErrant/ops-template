@@ -3,6 +3,8 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: ingressroutes.traefik.containo.us
+  annotations:
+    lechaterrant.com/load-balancer: traefik
 spec:
   group: traefik.containo.us
   versions:
@@ -20,6 +22,8 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: ingressroutetcps.traefik.containo.us
+  annotations:
+    lechaterrant.com/load-balancer: traefik
 spec:
   group: traefik.containo.us
   versions:
@@ -37,6 +41,8 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: ingressrouteudps.traefik.containo.us
+  annotations:
+    lechaterrant.com/load-balancer: traefik
 spec:
   group: traefik.containo.us
   versions:
@@ -54,6 +60,8 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: middlewares.traefik.containo.us
+  annotations:
+    lechaterrant.com/load-balancer: traefik
 spec:
   group: traefik.containo.us
   versions:
@@ -71,6 +79,8 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: tlsoptions.traefik.containo.us
+  annotations:
+    lechaterrant.com/load-balancer: traefik
 spec:
   group: traefik.containo.us
   versions:
@@ -88,6 +98,8 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: tlsstores.traefik.containo.us
+  annotations:
+    lechaterrant.com/load-balancer: traefik
 spec:
   group: traefik.containo.us
   versions:
@@ -101,11 +113,12 @@ spec:
   scope: Namespaced
 
 ---
-
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   name: traefikservices.traefik.containo.us
+  annotations:
+    lechaterrant.com/load-balancer: traefik
 spec:
   group: traefik.containo.us
   versions:

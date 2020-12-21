@@ -1,0 +1,23 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik-ingress-service
+  labels:
+    lechaterrant.com/app: traefik
+    lecharerrant.com/stack: traefik
+  annotations:
+    lechaterrant.com/load-balancer: traefik
+spec:
+  type: LoadBalancer
+  selector:
+    lechaterrant.com/app: traefik
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      name: web
+    - protocol: TCP
+      port: 443
+      targetPort: 443
+      name: websecure

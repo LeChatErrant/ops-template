@@ -1,0 +1,17 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik-dashboard-service
+  labels:
+    lechaterrant.com/app: traefik
+    lecharerrant.com/stack: traefik
+spec:
+  type: ClusterIP
+  selector:
+    lechaterrant.com/app: traefik
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      name: admin

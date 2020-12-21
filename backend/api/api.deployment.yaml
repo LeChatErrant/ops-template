@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  labels:
+    lechaterrant.com/app: api
+    lechaterrant.com/stack: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      lechaterrant.com/app: api
+  template:
+    metadata:
+      labels:
+        lechaterrant.com/app: api
+        lechaterrant.com/stack: backend
+    spec:
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: registry-key
+      containers:
+      - name: api
+        image: docker.pkg.github.com/lechaterrant/api-template/app:latest
+        readinessProbe:
+          httpGet:
+            port: 8000
+            path: /ping
+          periodSeconds: 3
+        envFrom:
+        - configMapRef:
+            name: api-configmap
+        - secretRef:
+            name: api-secret

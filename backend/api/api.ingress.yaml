@@ -1,0 +1,32 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: api-ingress
+  labels:
+    lechaterrant.com/app: api
+    lechaterrant.com/stack: backend
+spec:
+  entryPoints:
+    - web
+  routes:
+  - kind: Rule
+    match: Host(`api.lechaterrant.com`) || PathPrefix(`/api`)
+    services:
+    - name: api-service
+      port: 8000
+    middlewares:
+     - name: strip-api-prefix
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: strip-api-prefix
+  labels:
+    lechaterrant.com/app: api
+    lechaterrant.com/stack: backend
+spec:
+  stripPrefix:
+    prefixes:
+      - /api

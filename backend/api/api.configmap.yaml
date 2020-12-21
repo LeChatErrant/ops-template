@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-configmap
+  labels:
+    lechaterrant.com/app: api
+    lechaterrant.com/stack: backend
+data:
+  MODE: dev
+  PORT: "8000"
+  REDIS_HOST: redis-service
+  REDIS_PORT: "6379"
+  STUDIO_PORT: "8001"

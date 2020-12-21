@@ -1,0 +1,35 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: traefik-ingress-controller
+  labels:
+    lechaterrant.com/app: traefik
+    lecharerrant.com/stack: traefik
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      lechaterrant.com/app: traefik
+  template:
+    metadata:
+      name: traefik-ingress-lb
+      labels:
+        lechaterrant.com/app: traefik
+        lecharerrant.com/stack: traefik
+    spec:
+      serviceAccountName: traefik-ingress-controller
+      terminationGracePeriodSeconds: 60
+      restartPolicy: Always
+      containers:
+      - image: traefik:v2.2
+        name: traefik-ingress-lb
+        ports:
+        - name: http
+          containerPort: 80
+        - name: admin
+          containerPort: 8080
+        args:
+        - --providers.kubernetescrd
+        - --entrypoints.web.address=:80
+        - --api.insecure

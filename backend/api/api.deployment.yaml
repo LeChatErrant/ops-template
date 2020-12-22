@@ -24,11 +24,13 @@ spec:
       - name: api
         # 'latest' tag should be avoided, prefer using release tags or specific version
         image: docker.pkg.github.com/lechaterrant/api-template/app:latest
-        readinessProbe:
-          httpGet:
-            port: 8000
-            path: /ping
-          periodSeconds: 3
+        # Readiness probe, unlike expected, keep running even when the pod is ready
+        # As it is eating resources and polluting logs, we disabled it
+#        readinessProbe:
+#          httpGet:
+#            port: 8000
+#            path: /ping
+#          periodSeconds: 3
         envFrom:
         - configMapRef:
             name: api-configmap

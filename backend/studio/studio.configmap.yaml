@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: studio-configmap
+  labels:
+    lechaterrant.com/app: studio
+    lechaterrant.com/stack: backend
+data:
+  STUDIO_PORT: "8000"

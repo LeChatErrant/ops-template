@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: studio-service
+  labels:
+    lechaterrant.com/app: studio
+    lechaterrant.com/stack: backend
+spec:
+  type: ClusterIP
+  selector:
+    lechaterrant.com/app: studio
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8000
+      targetPort: 8000

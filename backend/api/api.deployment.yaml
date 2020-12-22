@@ -22,6 +22,7 @@ spec:
         - name: registry-key
       containers:
       - name: api
+        # 'latest' tag should be avoided, prefer using release tags or specific version
         image: docker.pkg.github.com/lechaterrant/api-template/app:latest
         readinessProbe:
           httpGet:

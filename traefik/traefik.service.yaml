@@ -8,6 +8,10 @@ metadata:
     lechaterrant.com/stack: traefik
   annotations:
     lechaterrant.com/load-balancer: traefik
+    # This tag allow to reuse an already existing digital ocean load balancer
+    # I need it to avoid recreating one each time I down and re up a kubernetes cluster,
+    # since my DNS records are pointing to this specific load balancer
+    kubernetes.digitalocean.com/load-balancer-id: 6c3e5438-7887-465f-b56e-3e491442d5ca
 spec:
   type: LoadBalancer
   selector:

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  labels:
+    lechaterrant.com/app: postgres
+    lechaterrant.com/stack: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      lechaterrant.com/app: postgres
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        lechaterrant.com/app: postgres
+        lechaterrant.com/stack: backend
+    spec:
+      restartPolicy: Always
+      containers:
+      - image: postgres:12-alpine
+        # args:
+        #   - "--ignore-db-dir=lost+found" # Workaround for https://github.com/docker-library/mysql/issues/186
+        name: postgres
+        envFrom:
+        - configMapRef:
+            name: postgres-configmap
+        - secretRef:
+            name: postgres-secret
+        ports:
+        - containerPort: 5432
+          name: postgres
+        volumeMounts: # Mounting volume obtained from Persistent Volume Claim
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/postgresql/data
+          subPath: postgres
+      volumes: # Obtaining volume from PVC
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: postgres-pv-claim

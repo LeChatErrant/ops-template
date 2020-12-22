@@ -11,7 +11,7 @@ spec:
     - web
   routes:
   - kind: Rule
-    match: Host(`api.lechaterrant.com`) || PathPrefix(`/api`)
+    match: Host(`api.lechaterrant.com`) || PathPrefix(`/insecure/api`)
     services:
     - name: api-service
       port: 8000
@@ -29,4 +29,4 @@ metadata:
 spec:
   stripPrefix:
     prefixes:
-      - /api
+      - /insecure/api

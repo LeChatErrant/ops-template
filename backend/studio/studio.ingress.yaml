@@ -11,8 +11,6 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      # Due to some bug, don't forget the leading '/' at the end of
-      # /insecure/studio/ when trying to reach it in browser
       match: Host(`studio.lechaterrant.com`)
       services:
         - name: studio-service

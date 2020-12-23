@@ -1,5 +1,5 @@
 ---
-kind: Deployment
+kind: DaemonSet
 apiVersion: apps/v1
 metadata:
   name: traefik-ingress-controller
@@ -9,7 +9,6 @@ metadata:
   annotations:
     lechaterrant.com/load-balancer: traefik
 spec:
-  replicas: 2
   selector:
     matchLabels:
       lechaterrant.com/app: traefik
@@ -34,4 +33,5 @@ spec:
         args:
         - --providers.kubernetescrd
         - --entrypoints.web.address=:80
+        - --entrypoints.websecure.address=:443
         - --api.insecure

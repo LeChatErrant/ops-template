@@ -24,7 +24,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: traefik-dashboard-ingress
+  name: traefik-dashboard-ingress-http
   labels:
     lechaterrant.com/app: traefik
     lechaterrant.com/stack: traefik

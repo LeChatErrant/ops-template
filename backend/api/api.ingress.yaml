@@ -2,7 +2,27 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: api-ingress
+  name: api-ingress-https
+  labels:
+    lechaterrant.com/app: api
+    lechaterrant.com/stack: backend
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - kind: Rule
+    match: Host(`api.lechaterrant.com`)
+    services:
+    - name: api-service
+      port: 8000
+  tls:
+    secretName: tls-secret
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: api-ingress-http
   labels:
     lechaterrant.com/app: api
     lechaterrant.com/stack: backend
@@ -10,13 +30,13 @@ spec:
   entryPoints:
     - web
   routes:
-  - kind: Rule
-    match: Host(`api.lechaterrant.com`) || PathPrefix(`/insecure/api`)
-    services:
-    - name: api-service
-      port: 8000
-    middlewares:
-     - name: strip-api-prefix
+    - kind: Rule
+      match: Host(`api.lechaterrant.com`) && PathPrefix(`/insecure`)
+      services:
+        - name: api-service
+          port: 8000
+      middlewares:
+        - name: strip-api-prefix
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -29,4 +49,4 @@ metadata:
 spec:
   stripPrefix:
     prefixes:
-      - /insecure/api
+      - /insecure

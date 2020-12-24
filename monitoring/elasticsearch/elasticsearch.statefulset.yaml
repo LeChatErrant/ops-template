@@ -31,16 +31,13 @@ spec:
               name: transport
               protocol: TCP
           volumeMounts:
-            - name: elasticsearch
+            - name: elasticsearch-data
               mountPath: /data
           env:
             - name: "NAMESPACE"
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-      volumes:
-        - name: elasticsearch
-          emptyDir: {}
       # Elasticsearch requires vm.max_map_count to be at least 262144.
       # If your OS already sets up this number to a higher value, feel free
       # to remove this init container.
@@ -50,3 +47,12 @@ spec:
           name: elasticsearch-vm-max-map-init
           securityContext:
             privileged: true
+  volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi

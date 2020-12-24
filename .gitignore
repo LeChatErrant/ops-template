@@ -1,2 +1,3 @@
 .idea
-*tls.secret.yml
+*tls.secret.yaml
+*registry.secret.yaml

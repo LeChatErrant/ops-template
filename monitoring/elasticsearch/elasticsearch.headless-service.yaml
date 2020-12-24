@@ -2,11 +2,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: elasticsearch-service
+  name: elasticsearch-headless-service
   namespace: monitoring
   labels:
     app: elasticsearch
 spec:
+  # Create a headless service, providing hostname for each of statefulset pods
+  # (elasticsearch-headless-service-0, etc)
+  clusterIP: None
+  # Create endpoints also if the related pod isn't ready
+  publishNotReadyAddresses: true
   ports:
     - port: 9200
       protocol: TCP

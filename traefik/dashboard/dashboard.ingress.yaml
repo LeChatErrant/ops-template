@@ -13,8 +13,8 @@ spec:
     - match: Host(`traefik.lechaterrant.com`)
       kind: Rule
       services:
-        - name: traefik-dashboard-service
-          port: 8080
+        - name: api@internal
+          kind: TraefikService
       middlewares:
         - name: admin-auth
   tls:
@@ -35,7 +35,7 @@ spec:
     - match: Host(`traefik.lechaterrant.com`)
       kind: Rule
       services:
-        - name: traefik-dashboard-service
-          port: 8080
+        - name: api@internal
+          kind: TraefikService
       middlewares:
         - name: https-redirect

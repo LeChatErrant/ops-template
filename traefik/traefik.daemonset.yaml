@@ -30,10 +30,8 @@ spec:
           containerPort: 80
         - name: https
           containerPort: 443
-        - name: admin
-          containerPort: 8080
         args:
         - --providers.kubernetescrd
         - --entrypoints.web.address=:80
         - --entrypoints.websecure.address=:443
-        - --api.insecure
+        - --api

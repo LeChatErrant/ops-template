@@ -1,0 +1,52 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: elasticsearch-statefulset
+  namespace: monitoring
+  labels:
+    k8s-app: elasticsearch-statefulset
+spec:
+  serviceName: elasticsearch-service
+  replicas: 3
+  updateStrategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      k8s-app: elasticsearch-statefulset
+  template:
+    metadata:
+      labels:
+        k8s-app: elasticsearch-statefulset
+    spec:
+      serviceAccountName: elasticsearch-logging
+      containers:
+        - image: docker.elastic.co/elasticsearch/elasticsearch:7.10.1
+          name: elasticsearch
+          ports:
+            - containerPort: 9200
+              name: db
+              protocol: TCP
+            - containerPort: 9300
+              name: transport
+              protocol: TCP
+          volumeMounts:
+            - name: elasticsearch
+              mountPath: /data
+          env:
+            - name: "NAMESPACE"
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+      volumes:
+        - name: elasticsearch
+          emptyDir: {}
+      # Elasticsearch requires vm.max_map_count to be at least 262144.
+      # If your OS already sets up this number to a higher value, feel free
+      # to remove this init container.
+      initContainers:
+        - image: busybox
+          command: ["/sbin/sysctl", "-w", "vm.max_map_count=262144"]
+          name: elasticsearch-vm-max-map-init
+          securityContext:
+            privileged: true

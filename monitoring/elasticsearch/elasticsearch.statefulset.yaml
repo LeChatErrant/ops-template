@@ -5,7 +5,7 @@ metadata:
   name: elasticsearch-statefulset
   namespace: monitoring
   labels:
-    k8s-app: elasticsearch-statefulset
+    app: elasticsearch
 spec:
   serviceName: elasticsearch-service
   replicas: 3
@@ -13,11 +13,11 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      k8s-app: elasticsearch-statefulset
+      app: elasticsearch
   template:
     metadata:
       labels:
-        k8s-app: elasticsearch-statefulset
+        app: elasticsearch
     spec:
       serviceAccountName: elasticsearch-logging
       containers:

@@ -62,6 +62,20 @@ normal
 )
 green
 echo "Successfully added private registry credentials"
+normal
+
+bold
+blue
+echo
+echo "Deploying backend..."
+normal
+(
+  cd backend
+  ./deploy.sh
+)
+green
+echo "Backend deployed !"
+normal
 
 bold
 blue

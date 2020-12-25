@@ -13,9 +13,9 @@ data:
     network.host: "0.0.0.0"
 
     discovery.seed_hosts:
-      - elasticsearch-statefulset-0.elasticsearch-service
-      - elasticsearch-statefulset-1.elasticsearch-service
-      - elasticsearch-statefulset-2.elasticsearch-service
+      - elasticsearch-statefulset-0.elasticsearch-headless-service
+      - elasticsearch-statefulset-1.elasticsearch-headless-service
+      - elasticsearch-statefulset-2.elasticsearch-headless-service
 
     cluster.initial_master_nodes:
       - elasticsearch-statefylset-0

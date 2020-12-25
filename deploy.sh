@@ -48,8 +48,20 @@ normal
   ./deploy.sh
 )
 green
-echo "Successfully add ingress controller Traefik"
+echo "Successfully added ingress controller Traefik"
 normal
+
+bold
+blue
+echo
+echo "Adding private registry credentials"
+normal
+(
+  cd registry
+  ./deploy.sh
+)
+green
+echo "Successfully added private registry credentials"
 
 bold
 blue

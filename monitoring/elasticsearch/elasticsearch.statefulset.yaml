@@ -25,14 +25,16 @@ spec:
           name: elasticsearch
           ports:
             - containerPort: 9200
-              name: db
+              name: http
               protocol: TCP
             - containerPort: 9300
               name: transport
               protocol: TCP
           volumeMounts:
             - name: elasticsearch-data
-              mountPath: /data
+              mountPath: /usr/share/elasticsearch/data
+            - name: elasticsearch-config
+              mountPath: /usr/share/elasticsearch/config
           env:
             - name: "NAMESPACE"
               valueFrom:
@@ -47,6 +49,10 @@ spec:
           name: elasticsearch-vm-max-map-init
           securityContext:
             privileged: true
+      volumes:
+        - name: elasticsearch-config
+          configMap:
+            name: elasticsearch-configmap
   volumeClaimTemplates:
     - metadata:
         name: elasticsearch-data

@@ -28,31 +28,31 @@ kubectl apply -f traefik.service.yaml
 bold
 blue
 echo
-echo -e "Adding HTTPS redirect middleware..."
+echo "Adding HTTPS redirect middleware..."
 normal
 kubectl apply -f https
 green
-echo -e "Successfully added HTTPS redirect middleware !"
+echo "Successfully added HTTPS redirect middleware !"
 normal
 
 bold
 blue
 echo
-echo -e "Adding basic authentification middleware..."
+echo "Adding basic authentification middleware..."
 yellow
-echo -e "Warning : don't forget to change default credentials (admin:admin)"
+echo "Warning : don't forget to change default credentials (admin:admin)"
 normal
 kubectl apply -f auth
 green
-echo -e "Successfully added basic authentification middleware !"
+echo "Successfully added basic authentification middleware !"
 normal
 
 bold
 blue
 echo
-echo -e "Exposing Traefik dashboard..."
+echo "Exposing Traefik dashboard..."
 normal
 kubectl apply -f dashboard
 green
-echo -e "Successfully exposed Traefik dashboard !"
+echo "Successfully exposed Traefik dashboard !"
 normal

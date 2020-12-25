@@ -11,7 +11,7 @@ normal() {
 if [ ! -f "true.tls.secret.yaml" ]
 then
   bold
-  echo -e "Warning : default tls certificate added. Consider adding yours in 'tls/true.tls.secret.yaml'"
+  echo "Warning : default tls certificate added. Consider adding yours in 'tls/true.tls.secret.yaml'"
   normal
   kubectl apply -f tls.secret.yaml
 else

@@ -18,6 +18,6 @@ data:
       - elasticsearch-statefulset-2.elasticsearch-headless-service
 
     cluster.initial_master_nodes:
-      - elasticsearch-statefylset-0
-      - elasticsearch-statefylset-1
-      - elasticsearch-statefylset-2
+      - elasticsearch-statefulset-0
+      - elasticsearch-statefulset-1
+      - elasticsearch-statefulset-2

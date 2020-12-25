@@ -15,9 +15,9 @@ spec:
   ports:
     - port: 9200
       protocol: TCP
-      targetPort: http
+      name: http
     - port: 9300
       protocol: TCP
-      targetPort: transport
+      name: transport
   selector:
     app: elasticsearch

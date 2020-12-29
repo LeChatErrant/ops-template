@@ -80,5 +80,18 @@ normal
 bold
 blue
 echo
+echo "Deploying monitoring stack..."
+normal
+(
+  cd monitoring
+  ./deploy.sh
+)
+green
+echo "Monitoring stack deployed !"
+normal
+
+bold
+blue
+echo
 echo "Setup finished !"
 normal

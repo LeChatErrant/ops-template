@@ -24,6 +24,7 @@ kubectl apply -f monitoring.namespace.yaml
 
 bold
 blue
+echo
 echo "Deploying elasticsearch..."
 normal
 (
@@ -32,4 +33,17 @@ normal
 )
 green
 echo "Elasticsearch deployed !"
+normal
+
+bold
+blue
+echo
+echo "Deploying logstash..."
+normal
+(
+  cd logstash
+  ./deploy.sh
+)
+green
+echo "Logstash deployed !"
 normal

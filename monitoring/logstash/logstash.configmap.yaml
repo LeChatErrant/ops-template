@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logstash-configmap
+  namespace: monitoring
+  labels:
+    app: logstash
+data:
+  logstash.yml: |
+    http.host: "0.0.0.0"
+    path.config: /usr/share/logstash/pipeline
+  logstash.conf: |
+    # all input will come from filebeat, no local logs
+    input {
+      beats {
+        port => 5044
+      }
+    }
+    filter {
+      if [message] =~ /^\{.*\}$/ {
+        json {
+          source => "message"
+        }
+      }
+      if [ClientHost] {
+        geoip {
+          source => "ClientHost"
+        }
+      }
+    }
+    output {
+        elasticsearch {
+            hosts => [ "elasticsearch-service:9200" ]
+        }
+    }

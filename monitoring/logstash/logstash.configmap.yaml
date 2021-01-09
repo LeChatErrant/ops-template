@@ -31,6 +31,6 @@ data:
     }
     output {
         elasticsearch {
-            hosts => [ "elasticsearch-service:9200" ]
+            hosts => [ "${ELASTICSEARCH_URL}" ]
         }
     }

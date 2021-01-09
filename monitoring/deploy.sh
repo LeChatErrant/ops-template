@@ -47,3 +47,17 @@ normal
 green
 echo "Logstash deployed !"
 normal
+
+bold
+blue
+echo
+echo "Deploying filebeat..."
+normal
+(
+  cd filebeat
+  ./deploy.sh
+)
+green
+echo "Filebeat deployed !"
+normal
+

@@ -15,6 +15,7 @@ spec:
       services:
         - name: kibana-service
           port: 5601
+          namespace: monitoring
       middlewares:
         - name: admin-auth
   tls:
@@ -37,5 +38,6 @@ spec:
       services:
         - name: kibana-service
           port: 5601
+          namespace: monitoring
       middlewares:
         - name: https-redirect

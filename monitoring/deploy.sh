@@ -61,3 +61,16 @@ green
 echo "Filebeat deployed !"
 normal
 
+bold
+blue
+echo
+echo "Deploying kibana..."
+normal
+(
+  cd kibana
+  ./deploy.sh
+)
+green
+echo "Kibana deployed !"
+normal
+

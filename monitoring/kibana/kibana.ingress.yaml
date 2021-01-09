@@ -1,0 +1,41 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: kibana-ingress-https
+  labels:
+    lechaterrant.com/app: kibana
+    lechaterrant.com/stack: monitoring
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`kibana.lechaterrant.com`)
+      services:
+        - name: kibana-service
+          port: 5601
+      middlewares:
+        - name: admin-auth
+  tls:
+    secretName: tls-secret
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: kibana-ingress-http
+  labels:
+    lechaterrant.com/app: kibana
+    lechaterrant.com/stack: monitoring
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`kibana.lechaterrant.com`)
+      services:
+        - name: kibana-service
+          port: 5601
+      middlewares:
+        - name: https-redirect

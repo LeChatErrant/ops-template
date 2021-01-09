@@ -29,3 +29,4 @@ kubectl apply -f api.ingress.yaml
 
 green
 echo "API exposed !"
+normal

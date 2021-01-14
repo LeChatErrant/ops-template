@@ -32,14 +32,10 @@ spec:
             - name: ELASTICSEARCH_PORT
               value: "9200"
               # TODO: add authentication
-#            - name: ELASTICSEARCH_USERNAME
-#              value: elastic
-#            - name: ELASTICSEARCH_PASSWORD
-#              value: changeme
-#            - name: ELASTIC_CLOUD_ID
-#              value:
-#            - name: ELASTIC_CLOUD_AUTH
-#              value:
+            - name: ELASTICSEARCH_USERNAME
+              value: beats_system
+            - name: ELASTICSEARCH_PASSWORD
+              value: changeme
             - name: NODE_NAME
               valueFrom:
                 fieldRef:

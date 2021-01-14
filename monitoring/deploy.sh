@@ -8,6 +8,10 @@ normal() {
   echo -en "\e[0m"
 }
 
+red() {
+  echo -en "\e[31m"
+}
+
 green() {
   echo -en "\e[32m"
 }
@@ -74,3 +78,9 @@ green
 echo "Kibana deployed !"
 normal
 
+red
+bold
+echo
+echo "IMPORTANT : Do not forget to configure elasticsearch authentification"
+echo "This can be done using script monitoring/configure_auth.sh"
+normal

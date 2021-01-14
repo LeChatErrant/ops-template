@@ -37,6 +37,8 @@ spec:
               mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
               subPath: elasticsearch.yml
           env:
+            - name: CLUSTER_NAME
+              value: elasticsearch
             - name: NAMESPACE
               valueFrom:
                 fieldRef:

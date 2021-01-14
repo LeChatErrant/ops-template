@@ -8,6 +8,7 @@ metadata:
     app: elasticsearch
 data:
   elasticsearch.yml: |
+    cluster.name: ${CLUSTER_NAME}
     node.name: ${NODE_NAME}
 
     network.host: "0.0.0.0"
@@ -21,3 +22,5 @@ data:
       - elasticsearch-statefulset-0
       - elasticsearch-statefulset-1
       - elasticsearch-statefulset-2
+
+    xpack.monitoring.collection.enabled: true

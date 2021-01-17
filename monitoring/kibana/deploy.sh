@@ -20,6 +20,7 @@ blue() {
   echo -en "\e[34m"
 }
 
+kubectl apply -f kibana.configmap.yaml
 kubectl apply -f kibana.deployment.yaml
 kubectl apply -f kibana.service.yaml
 kubectl apply -f kibana.ingress.yaml

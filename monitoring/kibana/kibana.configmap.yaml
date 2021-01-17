@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kibana-configmap
+  namespace: monitoring
+data:
+  kibana.yml: |
+    elasticsearch:
+      hosts: "${ELASTICSEARCH_HOSTS}"
+      username: "${ELASTICSEARCH_USERNAME}"
+      password: "${ELASTICSEARCH_PASSWORD}"

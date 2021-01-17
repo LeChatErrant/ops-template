@@ -21,7 +21,18 @@ spec:
           env:
             - name: ELASTICSEARCH_HOSTS
               value: http://elasticsearch-service:9200
+            - name: ELASTICSEARCH_USERNAME
+              value: kibana_system
+            - name: ELASTICSEARCH_PASSWORD
+              value: changeme
           ports:
             - containerPort: 5601
               name: ui
               protocol: TCP
+          volumeMounts:
+            - mountPath: /usr/share/kibana/config/
+              name: config
+      volumes:
+        - name: config
+          configMap:
+            name: kibana-configmap

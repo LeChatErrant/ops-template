@@ -24,3 +24,5 @@ data:
       - elasticsearch-statefulset-2
 
     xpack.monitoring.collection.enabled: true
+
+    xpack.security.enabled: true

@@ -32,9 +32,9 @@ blue
 echo
 echo "In this template repository, stacks are configured to use some default credentials"
 normal
-echo -e "\tUser: elastic"
+echo -e "\tUser: elastic,beats_system,kibana_system,logstash_system,..."
 echo -e "\tPassword: changeme"
-echo "If you are simply trying things out, make sure to enter \"changeme\" as password for the user \"elastic\""
+echo "If you are simply trying things out, make sure to enter \"changeme\" as password for EVERY users"
 echo "This way, everything will work directly"
 yellow
 bold

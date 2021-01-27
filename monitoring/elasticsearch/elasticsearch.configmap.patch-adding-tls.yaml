@@ -1,0 +1,24 @@
+---
+data:
+  elasticsearch.yml: |
+    cluster.name: ${CLUSTER_NAME}
+    node.name: ${NODE_NAME}
+
+    network.host: "0.0.0.0"
+
+    discovery.seed_hosts:
+      - elasticsearch-statefulset-0.elasticsearch-headless-service
+      - elasticsearch-statefulset-1.elasticsearch-headless-service
+      - elasticsearch-statefulset-2.elasticsearch-headless-service
+
+    cluster.initial_master_nodes:
+      - elasticsearch-statefulset-0
+      - elasticsearch-statefulset-1
+      - elasticsearch-statefulset-2
+
+    xpack.monitoring.collection.enabled: true
+
+    xpack.security.enabled: true
+    xpack.security.transport.ssl.verification_mode: certificate
+    xpack.security.transport.ssl.keystore.path: ${NODE_NAME}.p12
+    xpack.security.transport.ssl.truststore.path: ${NODE_NAME}.p12

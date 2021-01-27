@@ -25,6 +25,7 @@ echo
 echo "You are about to configure passwords for elasticsearch users"
 normal
 
+echo
 echo "First of all, make sure the elasticsearch cluster is up"
 read -p "Press enter when elasticsearch is ready"
 

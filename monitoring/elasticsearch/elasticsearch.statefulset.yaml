@@ -36,6 +36,8 @@ spec:
             - name: elasticsearch-config
               mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
               subPath: elasticsearch.yml
+            - name: elasticsearch-tls
+              mountPath: /usr/share/elasticsearch/config/certs
           env:
             - name: CLUSTER_NAME
               value: elasticsearch
@@ -73,6 +75,18 @@ spec:
         - name: elasticsearch-config
           configMap:
             name: elasticsearch-configmap
+        - name: elasticsearch-tls
+          secret:
+            # elasticsearch-tls secret will be added once certificates has been generated
+            # those certificates need elasticsearch to be running to be generated
+            # So, we have to
+            #  - Run elasticsearch without tls
+            #  - Generate tls certificates (see details in deploy.sh script
+            #  - Inject certificates as a secret in the K8S cluster
+            #  - Change elasticsearch configuration
+            #  - Restart elasticsearch with the new configuration
+            optional: true
+            secretName: elasticsearch-tls
   volumeClaimTemplates:
     - metadata:
         name: elasticsearch-data

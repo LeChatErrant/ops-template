@@ -1,4 +1,4 @@
 .idea
 **/*tls.secret.yaml
 **/*registry.secret.yaml
-**/certificate-bundle*
+**/*certificate*

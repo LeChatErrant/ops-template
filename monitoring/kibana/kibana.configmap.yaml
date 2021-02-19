@@ -10,3 +10,5 @@ data:
       hosts: "${ELASTICSEARCH_HOSTS}"
       username: "${ELASTICSEARCH_USERNAME}"
       password: "${ELASTICSEARCH_PASSWORD}"
+
+    server.host: 0.0.0.0

@@ -22,7 +22,7 @@ spec:
         - name: registry-key
       containers:
       - name: studio
-        image: docker.pkg.github.com/lechaterrant/api-template/app:latest
+        image: ghcr.io/lechaterrant/api-template:latest
         args:
           - db:studio
         envFrom:

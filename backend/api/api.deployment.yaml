@@ -23,7 +23,7 @@ spec:
       containers:
       - name: api
         # 'latest' tag should be avoided, prefer using release tags or specific version
-        image: docker.pkg.github.com/lechaterrant/api-template/app:latest
+        image: ghcr.io/lechaterrant/api-template:latest
         # Readiness probe, unlike expected, keep running even when the pod is ready
         # As it is eating resources and polluting logs, we disabled it
 #        readinessProbe:

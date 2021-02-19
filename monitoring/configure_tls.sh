@@ -29,14 +29,15 @@ echo
 echo "First of all, make sure the elasticsearch cluster is up"
 read -p "Press enter when elasticsearch is ready"
 
-espod=$(kubectl get pods -n monitoring | grep elasticsearch-statefulset | sed -n 1p | awk '{print $1}')
+namespace=monitoring
+espod=$(kubectl get pods -n $namespace | grep elasticsearch-statefulset | sed -n 1p | awk '{print $1}')
 
 blue
 bold
 echo
 echo "Generating certificates..."
 normal
-yes "" | kubectl exec -it "$espod" -n monitoring -- bin/elasticsearch-certutil cert -pem
+kubectl exec -it "$espod" -n $namespace -- bin/elasticsearch-certutil cert -pem
 green
 echo "Certificates successfully generated"
 normal
@@ -45,7 +46,7 @@ blue
 echo
 echo "Downloading certificates..."
 normal
-kubectl cp monitoring/"$espod":/usr/share/elasticsearch/certificate-bundle.zip certificate-bundle.zip
+kubectl cp $monitoring/"$espod":/usr/share/elasticsearch/certificate-bundle.zip certificate-bundle.zip
 unzip certificate-bundle.zip -d elastic-certificate-bundle
 rm certificate-bundle.zip
 mv elastic-certificate-bundle/instance/instance.crt elastic-certificate-bundle/instance/tls.crt
@@ -59,19 +60,19 @@ blue
 echo
 echo "Creating kubernetes secret using certificate..."
 normal
-kubectl create secret generic elasticsearch-tls -n monitoring --from-file=elastic-certificate-bundle/ca/ca.crt --from-file=elastic-certificate-bundle/instance/tls.crt --from-file=elastic-certificate-bundle/instance/tls.key
+kubectl create secret generic elasticsearch-tls -n $namespace --from-file=elastic-certificate-bundle/ca/ca.crt --from-file=elastic-certificate-bundle/instance/tls.crt --from-file=elastic-certificate-bundle/instance/tls.key
 
 blue
 echo
 echo "Configuring elasticsearch to use TLS"
 normal
-kubectl patch configmaps elasticsearch-configmap -n monitoring -p "$(cat elasticsearch/elasticsearch.configmap.patch-adding-tls.yaml)"
+kubectl patch configmaps elasticsearch-configmap -n $namespace -p "$(cat elasticsearch/elasticsearch.configmap.patch-adding-tls.yaml)"
 
 blue
 echo
 echo "Restarting elasticsearch"
 normal
-kubectl rollout restart statefulset -n monitoring elasticsearch-statefulset
+kubectl rollout restart statefulset -n $namespace elasticsearch-statefulset
 
 green
 echo

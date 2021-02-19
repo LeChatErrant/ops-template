@@ -46,8 +46,7 @@ normal
 echo
 read -p "Press enter when ready"
 
-namespace=monitoring
-kubectl exec -it $(kubectl get pods -n $namespace | grep elasticsearch-statefulset | sed -n 1p | awk '{print $1}') -n $namespace -- bin/elasticsearch-setup-passwords interactive
+kubectl exec -it $(kubectl get pods -n monitoring | grep elasticsearch-statefulset | sed -n 1p | awk '{print $1}') -n monitoring -- bin/elasticsearch-setup-passwords interactive
 
 green
 bold

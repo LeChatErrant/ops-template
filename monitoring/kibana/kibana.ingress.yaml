@@ -16,8 +16,6 @@ spec:
         - name: kibana-service
           port: 5601
           namespace: monitoring
-      middlewares:
-        - name: admin-auth
   tls:
     secretName: tls-secret
 

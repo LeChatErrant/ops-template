@@ -30,8 +30,9 @@ spec:
               name: ui
               protocol: TCP
           volumeMounts:
-            - mountPath: /usr/share/kibana/config/
-              name: config
+            - name: config
+              mountPath: /usr/share/kibana/config/kibana.yml
+              subPath: kibana.yml
       volumes:
         - name: config
           configMap:

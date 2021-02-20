@@ -30,7 +30,7 @@ spec:
             - name: ELASTICSEARCH_URL
               value: http://elasticsearch-service:9200
             - name: ELASTICSEARCH_USERNAME
-              value: beats_system
+              value: elastic
             - name: ELASTICSEARCH_PASSWORD
               value: changeme
             - name: KIBANA_URL

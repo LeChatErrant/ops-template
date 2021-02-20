@@ -1,0 +1,65 @@
+---
+# Deploy singleton instance in the whole cluster for some unique data sources, like kube-state-metrics
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heartbeat-deployment
+  namespace: monitoring
+  labels:
+    app: heartbeat
+spec:
+  selector:
+    matchLabels:
+      app: heartbeat
+  template:
+    metadata:
+      labels:
+        app: heartbeat
+    spec:
+      serviceAccountName: heartbeat
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+        - name: heartbeat
+          image: docker.elastic.co/beats/heartbeat:7.10.2
+          args: [
+            "-c", "/etc/heartbeat.yml",
+            "-e",
+          ]
+          env:
+            - name: ELASTICSEARCH_URL
+              value: http://elasticsearch-service:9200
+            - name: ELASTICSEARCH_USERNAME
+              value: beats_system
+            - name: ELASTICSEARCH_PASSWORD
+              value: changeme
+            - name: KIBANA_URL
+              value: http://kibana-service:5601
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          securityContext:
+            runAsUser: 0
+          resources:
+            limits:
+              memory: 200Mi
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          volumeMounts:
+            - name: config
+              mountPath: /etc/heartbeat.yml
+              readOnly: true
+              subPath: heartbeat.yml
+            - name: data
+              mountPath: /usr/share/heartbeat/data
+      volumes:
+        - name: config
+          configMap:
+            defaultMode: 0600
+            name: heartbeat-configmap
+        - name: data
+          hostPath:
+            path: /var/lib/heartbeat-data
+            type: DirectoryOrCreate

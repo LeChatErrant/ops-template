@@ -1,5 +1,6 @@
-apiVersion: rbac.authorization.k8s.io/v1
+---
 kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: heartbeat
   labels:
@@ -16,8 +17,8 @@ rules:
      - watch
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   namespace: monitoring
   name: heartbeat
@@ -31,8 +32,8 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 
 ---
-apiVersion: v1
 kind: ServiceAccount
+apiVersion: v1
 metadata:
   name: heartbeat
   namespace: monitoring

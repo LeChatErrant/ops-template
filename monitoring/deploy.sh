@@ -68,6 +68,19 @@ normal
 bold
 blue
 echo
+echo "Deploying heartbeat..."
+normal
+(
+  cd heartbeat
+  ./deploy.sh
+)
+green
+echo "Heartbeat deployed !"
+normal
+
+bold
+blue
+echo
 echo "Deploying kibana..."
 normal
 (

@@ -124,6 +124,12 @@ Proxy
 k proxy
 ```
 
+Change default namespace used (default=default)'
+
+```
+k config set-context --current --namespace=monitoring
+```
+
 ### Nodes
 
 Check nodes IP

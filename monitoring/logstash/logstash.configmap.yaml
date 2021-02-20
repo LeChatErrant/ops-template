@@ -32,5 +32,7 @@ data:
     output {
         elasticsearch {
             hosts => [ "${ELASTICSEARCH_URL}" ]
+            user => "${ELASTICSEARCH_USERNAME}"
+            password => "${ELASTICSEARCH_PASSWORD}"
         }
     }

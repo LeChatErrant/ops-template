@@ -24,6 +24,10 @@ spec:
           env:
             - name: ELASTICSEARCH_URL
               value: http://elasticsearch-service:9200
+            - name: ELASTICSEARCH_USERNAME
+              value: logstash_system
+            - name: ELASTICSEARCH_PASSWORD
+              value: changeme
           volumeMounts:
             - name: logstash-config-volume
               mountPath: /usr/share/logstash/config

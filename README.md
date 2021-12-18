@@ -9,6 +9,19 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 > This work is **still in progress** and is subject to many changes
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+# Table of contents
+
+- [Getting started](#getting-started)
+- [Technologies](#technologies)
+  - [Infrastructure](#infrastructure)
+  - [Deployment](#deployment)
+  - [Monitoring](#monitoring)
+  - [Monitoring (alternative)](#monitoring-alternative)
+- [Documentation](#documentation)
+- [How to contribute](#how-to-contribute)
+  - [Contributors](#contributors)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Getting started

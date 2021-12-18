@@ -42,9 +42,6 @@ data:
                   timeout: 5s
                   type: tcp
 
-    processors:
-      - add_cloud_metadata:
-
     output.elasticsearch:
       hosts: [ "${ELASTICSEARCH_URL}" ]
       username: "${ELASTICSEARCH_USERNAME}"
@@ -52,3 +49,19 @@ data:
 
     setup.kibana:
       host: "${KIBANA_URL}"
+
+    heartbeat.monitors:
+    - name: API
+      id: api-monitor
+      type: http
+      check.response.status: [200]
+      schedule: '@every 5s'
+      urls:
+        - https://api.lechaterrant.com/ping
+        - http://api.lechaterrant.com/insecure/ping
+
+    processors:
+      - add_kubernetes_metadata:
+      - add_cloud_metadata:
+
+    monitoring.enabled: true

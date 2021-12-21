@@ -28,6 +28,19 @@ kubectl apply -f traefik.service.yaml
 bold
 blue
 echo
+echo "Adding SSL certificates..."
+normal
+(
+  cd tls
+  ./deploy.sh
+)
+green
+echo "Successfully added SSL certificates !"
+normal
+
+bold
+blue
+echo
 echo "Adding HTTPS redirect middleware..."
 normal
 kubectl apply -f https

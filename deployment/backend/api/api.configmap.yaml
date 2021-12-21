@@ -11,3 +11,4 @@ data:
   PORT: "8000"
   REDIS_HOST: redis-service
   REDIS_PORT: "6379"
+  WHITELIST: frontend.lechaterrant.com

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  accounts.maintainer: apiKey, login
+  accounts.dev: login
+  accounts.external: login

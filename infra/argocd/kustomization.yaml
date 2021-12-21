@@ -1,6 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: argocd
+commonLabels:
+  lechaterrant.com/app: argocd
+  lechaterrant.com/stack: argocd
 bases:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 resources:
@@ -8,3 +11,6 @@ resources:
   - argocd.ingress.yaml
 patchesStrategicMerge:
   - argocd-cmd-params-cm.patch.yaml
+  - argocd-cm.patch.yaml
+  - argocd-rbac-cm-patch.yml
+  - argocd.secret.patch.yaml

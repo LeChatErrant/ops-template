@@ -4,9 +4,6 @@ kind: IngressRoute
 metadata:
   name: argocd-ingress-https
   namespace: argocd
-  labels:
-    lechaterrant.com/app: argocd
-    lechaterrant.com/stack: argocd
 spec:
   entryPoints:
     - websecure

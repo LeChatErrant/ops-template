@@ -8,3 +8,11 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   description: Infra related apps
+  sourceRepos:
+    - https://github.com/LeChatErrant/ops-template
+  destinations:
+    - namespace: argocd
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'

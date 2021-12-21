@@ -1,5 +1,5 @@
 resource "digitalocean_domain" "domain" {
-  name = "lechaterrant.com"
+  name = var.domain_name
 }
 
 resource "digitalocean_record" "traefik" {

@@ -38,10 +38,10 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 - [Vault](https://www.vaultproject.io/) : Secret management
 - [Kubernetes](https://kubernetes.io/) : Orchestrator
 - [ArgoCD](https://argoproj.github.io/cd/) : K8S CD and cluster management
+- [Kustomize](https://kustomize.io/) : Application customization
 
 ## Deployment
 
-- [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) : Role restrictions
 - [Helm](https://helm.sh/) : Kubernetes objects templating
 - [Traefik](https://traefik.io/) : Ingress controller and cloud networking
 - [Cert manager](https://cert-manager.io/) : SSL certificates management

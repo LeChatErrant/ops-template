@@ -2,7 +2,7 @@ resource "digitalocean_project" "ops-template" {
   name        = "Ops template"
   description = "Infrastructure of the ops-template project"
   purpose     = "Web Application"
-  resources = [digitalocean_kubernetes_cluster.cluster.id]
+  resources = ["do:kubernetes:${digitalocean_kubernetes_cluster.cluster.id}"]
 }
 
 resource "digitalocean_kubernetes_cluster" "cluster" {

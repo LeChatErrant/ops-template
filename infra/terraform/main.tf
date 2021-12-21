@@ -2,10 +2,11 @@ resource "digitalocean_project" "ops-template" {
   name        = "Ops template"
   description = "Infrastructure of the ops-template project"
   purpose     = "Web Application"
+  resources = [digitalocean_kubernetes_cluster.cluster.id]
 }
 
 resource "digitalocean_kubernetes_cluster" "cluster" {
-  name    = "K8S cluster"
+  name    = "cluster"
   region  = "fra1"
   version = "1.21.5-do.0"
 

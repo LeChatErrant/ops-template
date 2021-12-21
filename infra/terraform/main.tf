@@ -46,21 +46,3 @@ resource "digitalocean_loadbalancer" "load-balancer" {
     protocol = "tcp"
   }
 }
-
-resource "digitalocean_domain" "domain" {
-  name = "lechaterrant.com"
-}
-
-resource "digitalocean_record" "traefik" {
-  domain = digitalocean_domain.domain.name
-  name   = "traefik"
-  type   = "A"
-  value  = digitalocean_loadbalancer.load-balancer.ip
-}
-
-resource "digitalocean_record" "argocd" {
-  domain = digitalocean_domain.domain.name
-  name   = "argocd"
-  type   = "A"
-  value  = digitalocean_loadbalancer.load-balancer.ip
-}

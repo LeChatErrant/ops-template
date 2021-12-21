@@ -4,8 +4,6 @@ kind: AppProject
 metadata:
   name: infra-project
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   description: Infra related apps
   sourceRepos:

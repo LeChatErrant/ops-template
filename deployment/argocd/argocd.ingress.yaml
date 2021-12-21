@@ -1,0 +1,31 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argocd-ingress-https
+  labels:
+    lechaterrant.com/app: argocd
+    lechaterrant.com/stack: argocd
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`argocd.lechaterrant.com`)
+      priority: 10
+      services:
+        - name: argocd-server
+          port: 80
+          namespace: argocd
+      middlewares:
+        - name: admin-auth
+    - kind: Rule
+      match: Host(`argocd.lechaterrant.com`) && Headers(`Content-Type`, `application/grpc`)
+      priority: 11
+      services:
+        - name: argocd-server
+          port: 80
+          scheme: h2c
+          namespace: argocd
+  tls:
+    secretName: tls-secret

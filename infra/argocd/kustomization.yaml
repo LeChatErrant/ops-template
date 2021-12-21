@@ -9,6 +9,8 @@ bases:
 resources:
   - argocd.namespace.yaml
   - argocd.ingress.yaml
+  - argocd.projects.yaml
+  - argocd.applications.yaml
 patchesStrategicMerge:
   - argocd-cmd-params-cm.patch.yaml
   - argocd-cm.patch.yaml

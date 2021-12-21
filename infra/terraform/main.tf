@@ -58,5 +58,5 @@ resource "digitalocean_record" "argocd" {
   domain = digitalocean_domain.domain.name
   name   = "argocd"
   type   = "A"
-  value  = "argocd.${digitalocean_domain.domain.name}"
+  value  = digitalocean_loadbalancer.load-balancer.ip
 }

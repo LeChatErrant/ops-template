@@ -7,4 +7,4 @@ resources:
   - argocd.namespace.yaml
   - argocd.ingress.yaml
 patchesStrategicMerge:
-  - argocd-server.patch.yaml
+  - argocd-cmd-params-cm.patch.yaml

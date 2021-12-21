@@ -3,6 +3,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: argocd-ingress-https
+  namespace: argocd
   labels:
     lechaterrant.com/app: argocd
     lechaterrant.com/stack: argocd
@@ -16,9 +17,6 @@ spec:
         - kind: Service
           name: argocd-server
           port: 80
-          namespace: argocd
-      middlewares:
-        - name: admin-auth
   tls:
     secretName: tls-secret
 
@@ -27,6 +25,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: argocd-ingress-http
+  namespace: argocd
   labels:
     lechaterrant.com/app: argocd
     lechaterrant.com/stack: argocd
@@ -43,3 +42,4 @@ spec:
           namespace: argocd
       middlewares:
         - name: https-redirect
+          namespace: default

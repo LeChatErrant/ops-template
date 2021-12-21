@@ -11,7 +11,7 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
   version = "1.21.5-do.0"
 
   node_pool {
-    name       = "autoscale-worker-pool"
+    name       = "autoscaled-worker-pool"
     size       = "s-2vcpu-2gb"
     auto_scale = true
     min_nodes  = 2

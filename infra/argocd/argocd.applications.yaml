@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:LeChatErrant/ops-template
+    repoURL: https://github.com/LeChatErrant/ops-template
     targetRevision: master
     path: infra/argocd/applications
   destination:

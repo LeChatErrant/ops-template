@@ -39,6 +39,7 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 - [Kubernetes](https://kubernetes.io/) : Orchestrator
 - [ArgoCD](https://argoproj.github.io/cd/) : K8S continuous deployment and cluster management
 - [Kustomize](https://kustomize.io/) : K8S application customization
+- [Lens](https://k8slens.dev/) : K8S visualization
 
 ## Deployment
 

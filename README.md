@@ -120,6 +120,10 @@ With it, you don't need to do manual actions on a cloud provider dashboard, redu
 
 ## ArgoCD
 
+We will use **ArgoCD** to **synchronize** the cluster state with our repository and to **manage** our K8S apps
+
+The only thing we deploy by hand is argoCD, which will then deploy every apps present in the repository
+
 > Coming soon, work still in progress
 > 
 > Soon, the only thing to deploy on the cluster will be ArgoCD, which will manage all the other apps and deploy them directly from the repository

@@ -14,6 +14,7 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 
 - [Technologies](#technologies)
   - [Infrastructure](#infrastructure)
+  - [Tools](#tools)
   - [Deployment](#deployment)
   - [Monitoring](#monitoring)
   - [Monitoring (alternative)](#monitoring-alternative)
@@ -34,17 +35,20 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 - [Digital Ocean](https://www.digitalocean.com/) : Cloud provider
 - [Terraform](https://www.terraform.io/) : Infrastructure as code
 - [Terraform Cloud](https://www.terraform.io/cloud) : Terraform CD and remote state storage
-- [Ansible](https://www.ansible.com/) : Setup automation
 - [Vault](https://www.vaultproject.io/) : Secret management
 - [Kubernetes](https://kubernetes.io/) : Orchestrator
 - [ArgoCD](https://argoproj.github.io/cd/) : K8S continuous deployment and cluster management
+- [Traefik](https://traefik.io/) : Ingress controller and cloud networking
+
+## Tools
+
+- [Helm](https://helm.sh/) : Kubernetes objects templating
 - [Kustomize](https://kustomize.io/) : K8S application customization
+- [Ansible](https://www.ansible.com/) : Setup automation
 - [Lens](https://k8slens.dev/) : K8S visualization
 
 ## Deployment
 
-- [Helm](https://helm.sh/) : Kubernetes objects templating
-- [Traefik](https://traefik.io/) : Ingress controller and cloud networking
 - [Cert manager](https://cert-manager.io/) : SSL certificates management
 - [API template](https://github.com/LeChatErrant/API-template) : Backend
 - [Front template](https://github.com/LeChatErrant/front-template) : Frontend

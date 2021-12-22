@@ -10,7 +10,7 @@ metadata:
     lechaterrant.com/load-balancer: traefik
     # Add here the id of the load balancer to use
     # The ID is output by terraform scripts
-    kubernetes.digitalocean.com/load-balancer-id: f869da76-31ec-40e0-af99-f0fe5eb15e11
+    kubernetes.digitalocean.com/load-balancer-id: fae9a91f-af07-4db3-8b97-d968b5cf5c0d
 spec:
   type: LoadBalancer
   selector:

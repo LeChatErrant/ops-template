@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: traefik-application
+  name: traefik
   namespace: argocd
 spec:
   project: infra-project

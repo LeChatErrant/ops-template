@@ -1,5 +1,7 @@
 # Ops-template
 
+&nbsp;
+
 # What is it ?
 
 The purpose of this template is to provide a complete **production-ready** **kubernetes** infrastructure, focused on **automation**, **scalability**, and **monitoring**
@@ -7,6 +9,8 @@ The purpose of this template is to provide a complete **production-ready** **kub
 It emphasizes on **reproducibility** by describing all the **infrastructure as code**, avoiding any **manual intervention** and reducing **human errors**
 
 > This work is **still in progress** and is subject to many changes
+
+&nbsp;
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -28,7 +32,11 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+&nbsp;
+
 # Technologies
+
+&nbsp;
 
 ## Infrastructure
 
@@ -76,14 +84,20 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 
 ...and more
 
+&nbsp;
+
 # Getting started
+
+&nbsp;
 
 ## Digital Ocean
 
 Digital Ocean is used as **cloud provider**. Of course, you can use any other one, such as **GCP**, **Scaleway**, **AWS**, or even your own infrastructure.
 
-1. Connect to Digital Ocean
+1. Connect to **[Digital Ocean](https://www.digitalocean.com/)**
 2. Create a Personal Access Token with read and write scopes (https://www.digitalocean.com/docs/apis-clis/api/create-personal-access-token/)
+
+&nbsp;
 
 ## Terraform Cloud
 
@@ -95,15 +109,25 @@ With it, you don't need to do manual actions on a cloud provider dashboard, redu
 - Developers can still `terraform plan` when they are working, to see their change against the current infra
 - When merging on master, terraform cloud will calculate your new plan. Simple apply it in the UI when you want to update the infrastructure
 
-1. Connect to [Terraform Cloud](https://www.terraform.io/cloud)
+1. Connect to **[Terraform Cloud](https://www.terraform.io/cloud)**
 
 2. Once connected, create a workspace pointing to your ops git repository
 
-![Terraform workspace](.github/assets/terraform-workspace.png)
+| ![Terraform workspace](.github/assets/terraform-workspace.png) |
+|---|
+| Workspace creation on **[Terraform Cloud](https://www.terraform.io/cloud)** |
+
+&nbsp;
+&nbsp;
 
 3. Add terraform variables to your workspace (including your Digital Ocean access token)
 
-![Terraform variables](.github/assets/terraform-variables.png)
+| ![Terraform variables](.github/assets/terraform-variables.png) |
+|---|
+| Variables configuration on **[Terraform Cloud](https://www.terraform.io/cloud)** |
+
+&nbsp;
+&nbsp;
 
 4. Add your organization and your workspace into the [terraform/cloud.tf](https://github.com/LeChatErrant/ops-template/blob/master/infra/terraform/cloud.tf) to use terraform cloud as remote backend
 
@@ -123,6 +147,8 @@ With it, you don't need to do manual actions on a cloud provider dashboard, redu
    - studio.example.com
    - api.example.com
 
+&nbsp;
+
 ## ArgoCD
 
 We will use **ArgoCD** to **synchronize** the cluster state with our repository and to **manage** our K8S apps
@@ -133,9 +159,13 @@ The only thing we deploy by hand is argoCD, which will then deploy every apps pr
 > 
 > Soon, the only thing to deploy on the cluster will be ArgoCD, which will manage all the other apps and deploy them directly from the repository
 
+&nbsp;
+
 # Documentation
 
 > Coming soon
+
+&nbsp;
 
 # How to contribute
 

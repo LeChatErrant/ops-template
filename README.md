@@ -38,47 +38,47 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 
 ## Infrastructure
 
-- [Digital Ocean](https://www.digitalocean.com/) : Cloud provider
-- [Terraform](https://www.terraform.io/) : Infrastructure as code
-- [Terraform Cloud](https://www.terraform.io/cloud) : Terraform CD and remote state storage
-- [Vault](https://www.vaultproject.io/) : Secret management
-- [Kubernetes](https://kubernetes.io/) : Orchestrator
-- [ArgoCD](https://argoproj.github.io/cd/) : K8S continuous deployment and cluster management
-- [Traefik](https://traefik.io/) : Ingress controller and cloud networking
+- **[Digital Ocean](https://www.digitalocean.com/)** : Cloud provider
+- **[Terraform](https://www.terraform.io/)** : Infrastructure as code
+- **[Terraform Cloud](https://www.terraform.io/cloud)** : Terraform CD and remote state storage
+- **[Vault](https://www.vaultproject.io/)** : Secret management
+- **[Kubernetes](https://kubernetes.io/)** : Orchestrator
+- **[ArgoCD](https://argoproj.github.io/cd/)** : K8S continuous deployment and cluster management
+- **[Traefik](https://traefik.io/)** : Ingress controller and cloud networking
 
 ## Tools
 
-- [Helm](https://helm.sh/) : Kubernetes objects templating
-- [Kustomize](https://kustomize.io/) : K8S application customization
-- [Ansible](https://www.ansible.com/) : Setup automation
-- [Lens](https://k8slens.dev/) : K8S visualization
+- **[Helm](https://helm.sh/)** : Kubernetes objects templating
+- **[Kustomize](https://kustomize.io/)** : K8S application customization
+- **[Ansible](https://www.ansible.com/)** : Setup automation
+- **[Lens](https://k8slens.dev/)** : K8S visualization
 
 ## Deployment
 
-- [Cert manager](https://cert-manager.io/) : SSL certificates management
-- [API template](https://github.com/LeChatErrant/API-template) : Backend
-- [Front template](https://github.com/LeChatErrant/front-template) : Frontend
-- [Redis](https://redis.io/) : Data caching
-- [PostgreSQL](https://www.postgresql.org/) : Database
+- **[Cert manager](https://cert-manager.io/)** : SSL certificates management
+- **[API template](https://github.com/LeChatErrant/API-template)** : Backend
+- **[Front template](https://github.com/LeChatErrant/front-template)** : Frontend
+- **[Redis](https://redis.io/)** : Data caching
+- **[PostgreSQL](https://www.postgresql.org/)** : Database
 
 ## Monitoring
 
-- [Kibana](https://www.elastic.co/fr/kibana/) : Dashboard
-- [Elasticsearch](https://www.elastic.co/fr/) : Search engine
-- [Logstash](https://www.elastic.co/fr/logstash/) : Log aggregator and data processing
-- [Filebeat](https://www.elastic.co/fr/beats/filebeat) : Log shipping
-- [Metricbeat](https://www.elastic.co/fr/beats/metricbeat) : Metrics shipping
-- [Packetbeat](https://www.elastic.co/fr/beats/packetbeat) : Network data shipping
-- [Heartbeat](https://www.elastic.co/fr/beats/heartbeat) : Health check shipping
-- [Prisma studio](https://www.prisma.io/studio) : Database visualisation
+- **[Kibana](https://www.elastic.co/fr/kibana/)** : Dashboard
+- **[Elasticsearch](https://www.elastic.co/fr/)** : Search engine
+- **[Logstash](https://www.elastic.co/fr/logstash/)** : Log aggregator and data processing
+- **[Filebeat](https://www.elastic.co/fr/beats/filebeat)** : Log shipping
+- **[Metricbeat](https://www.elastic.co/fr/beats/metricbeat)** : Metrics shipping
+- **[Packetbeat](https://www.elastic.co/fr/beats/packetbeat)** : Network data shipping
+- **[Heartbeat](https://www.elastic.co/fr/beats/heartbeat)** : Health check shipping
+- **[Prisma studio](https://www.prisma.io/studio)** : Database visualisation
 > and soon alerting !
 
 ## Monitoring (alternative)
 
-- [Grafana](https://grafana.com/) : Dashboard
-- [Loki](https://grafana.com/oss/loki/) : Logs aggregator
-- [Prometheus](https://prometheus.io/) : Metrics aggregator
-- [Alert manager](https://prometheus.io/docs/alerting/latest/alertmanager/) : Alerting
+- **[Grafana](https://grafana.com/)** : Dashboard
+- **[Loki](https://grafana.com/oss/loki/)** : Logs aggregator
+- **[Prometheus](https://prometheus.io/)** : Metrics aggregator
+- **[Alert manager](https://prometheus.io/docs/alerting/latest/alertmanager/)** : Alerting
 
 ...and more
 
@@ -125,7 +125,7 @@ With it, you don't need to do manual actions on a cloud provider dashboard, redu
 &nbsp;
 &nbsp;
 
-4. Add your organization and your workspace into the [terraform/cloud.tf](https://github.com/LeChatErrant/ops-template/blob/master/infra/terraform/cloud.tf) to use terraform cloud as remote backend
+4. Add your organization and your workspace into the **[infra/terraform/cloud.tf](https://github.com/LeChatErrant/ops-template/blob/master/infra/terraform/cloud.tf)** to use terraform cloud as remote backend
 
 5. Start a new plan on terraform cloud UI
 

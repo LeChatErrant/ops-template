@@ -1,0 +1,16 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: apps-project
+  namespace: argocd
+spec:
+  description: Product related apps
+  sourceRepos:
+    - https://github.com/LeChatErrant/ops-template
+  destinations:
+    - namespace: '*'
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'

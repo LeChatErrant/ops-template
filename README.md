@@ -24,27 +24,26 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Getting started
-
-> Coming soon
-
 # Technologies
 
 ## Infrastructure
 
+- [Digital Ocean](https://www.digitalocean.com/) : Cloud provider
 - [Terraform](https://www.terraform.io/) : Infrastructure as code
 - [Terraform Cloud](https://www.terraform.io/cloud) : Terraform CD and remote state storage
 - [Ansible](https://www.ansible.com/) : Setup automation
 - [Vault](https://www.vaultproject.io/) : Secret management
 - [Kubernetes](https://kubernetes.io/) : Orchestrator
-- [ArgoCD](https://argoproj.github.io/cd/) : K8S CD and cluster management
-- [Kustomize](https://kustomize.io/) : Application customization
+- [ArgoCD](https://argoproj.github.io/cd/) : K8S continuous deployment and cluster management
+- [Kustomize](https://kustomize.io/) : K8S application customization
 
 ## Deployment
 
 - [Helm](https://helm.sh/) : Kubernetes objects templating
 - [Traefik](https://traefik.io/) : Ingress controller and cloud networking
 - [Cert manager](https://cert-manager.io/) : SSL certificates management
+- [API template](https://github.com/LeChatErrant/API-template) : Backend
+- [Front template](https://github.com/LeChatErrant/front-template) : Frontend
 - [Redis](https://redis.io/) : Data caching
 - [PostgreSQL](https://www.postgresql.org/) : Database
 
@@ -68,6 +67,57 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 - [Alert manager](https://prometheus.io/docs/alerting/latest/alertmanager/) : Alerting
 
 ...and more
+
+# Getting started
+
+## Digital Ocean
+
+Digital Ocean is used as **cloud provider**. Of course, you can use any other one, such as **GCP**, **Scaleway**, **AWS**, or even your own infrastructure.
+
+1. Connect to Digital Ocean
+2. Create a Personal Access Token with read and write scopes (https://www.digitalocean.com/docs/apis-clis/api/create-personal-access-token/)
+
+## Terraform Cloud
+
+**Terraform** is a tool enabling you to describe your **infrastructure as code** in the form of HashiCorp Configuration Language, or HCL (*.tf files)
+
+With it, you don't need to do manual actions on a cloud provider dashboard, reducing **human errors** and making your infrastructure **reproductible**
+
+**Terraform cloud** will hold your terraform **state** in the cloud, allowing multiple developers to work on it at the same time and using your repository as the unique **source of truth** for the infrastructure
+- Developers can still `terraform plan` when they are working, to see their change against the current infra
+- When merging on master, terraform cloud will calculate your new plan. Simple apply it in the UI when you want to update the infrastructure
+
+1. Connect to [Terraform Cloud](https://www.terraform.io/cloud)
+
+2. Once connected, create a workspace pointing to your ops git repository
+
+![Terraform workspace](.github/assets/terraform-workspace.png)
+
+3. Add terraform variables to your workspace (including your Digital Ocean access token)
+
+![Terraform variables](.github/assets/terraform-variables.png)
+
+4. Start a new plan
+
+5. Apply it and take a coffee
+
+**Congratulation**, you just deployed a whole infrastructure on Digital Ocean, including
+ - Digital ocean root project
+ - K8S autoscaled cluster
+ - Load balancer
+ - Domain
+ - DNS records for subdomains :
+   - traefik.example.com
+   - argocd.example.com
+   - kibana.example.com
+   - studio.example.com
+   - api.example.com
+
+## ArgoCD
+
+> Coming soon, work still in progress
+> 
+> Soon, the only thing to deploy on the cluster will be ArgoCD, which will manage all the other apps and deploy them directly from the repository
 
 # Documentation
 

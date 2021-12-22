@@ -36,8 +36,6 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 
 # Technologies
 
-&nbsp;
-
 ## Infrastructure
 
 - [Digital Ocean](https://www.digitalocean.com/) : Cloud provider
@@ -87,8 +85,6 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 &nbsp;
 
 # Getting started
-
-&nbsp;
 
 ## Digital Ocean
 

@@ -14,6 +14,7 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 
 - [Technologies](#technologies)
   - [Infrastructure](#infrastructure)
+  - [Tools](#tools)
   - [Deployment](#deployment)
   - [Monitoring](#monitoring)
   - [Monitoring (alternative)](#monitoring-alternative)

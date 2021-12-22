@@ -100,9 +100,11 @@ With it, you don't need to do manual actions on a cloud provider dashboard, redu
 
 ![Terraform variables](.github/assets/terraform-variables.png)
 
-4. Start a new plan
+4. Add your organization and your workspace into the [terraform/cloud.tf](https://github.com/LeChatErrant/ops-template/blob/master/infra/terraform/cloud.tf) to use terraform cloud as remote backend
 
-5. Apply it and take a coffee
+5. Start a new plan on terraform cloud UI
+
+6. Apply it and take a coffee
 
 **Congratulation**, you just deployed a whole infrastructure on Digital Ocean, including
  - Digital ocean root project

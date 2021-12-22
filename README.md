@@ -91,7 +91,7 @@ It emphasizes on **reproducibility** by describing all the **infrastructure as c
 Digital Ocean is used as **cloud provider**. Of course, you can use any other one, such as **GCP**, **Scaleway**, **AWS**, or even your own infrastructure.
 
 1. Connect to **[Digital Ocean](https://www.digitalocean.com/)**
-2. Create a Personal Access Token with read and write scopes (https://www.digitalocean.com/docs/apis-clis/api/create-personal-access-token/)
+2. Create a Personal Access Token with read and write scopes (**https://www.digitalocean.com/docs/apis-clis/api/create-personal-access-token/**)
 
 &nbsp;
 

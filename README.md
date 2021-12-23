@@ -1,7 +1,5 @@
 # Ops-template
 
-&nbsp;
-
 # What is it ?
 
 The purpose of this template is to provide a complete **production-ready** **kubernetes** infrastructure, focused on **automation**, **scalability**, and **monitoring**

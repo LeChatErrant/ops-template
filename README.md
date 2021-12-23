@@ -8,7 +8,13 @@ The purpose of this template is to provide a complete **production-ready** **kub
 
 It emphasizes on **reproducibility** by describing all the **infrastructure as code**, avoiding any **manual intervention** and reducing **human errors**
 
-> This work is **still in progress** and is subject to many changes
+&nbsp;
+
+**[ops-template](https://github.com/LeChatErrant/ops-template)** is fully integrated with
+- **[API-template](https://github.com/LeChatErrant/API-template)**, a modern typescript backend stack
+- **[front-template](https://github.com/LeChatErrant/front-template)**, a modern typescript frontend stack
+
+> Don't hesitate to share your improvements or to give feedback on Discord **(LeChatErrant#6074)** :wink:
 
 &nbsp;
 

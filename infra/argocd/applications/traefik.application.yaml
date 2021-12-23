@@ -10,6 +10,8 @@ spec:
     repoURL: https://github.com/LeChatErrant/ops-template
     targetRevision: master
     path: infra/traefik
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: default

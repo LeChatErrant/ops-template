@@ -8,9 +8,14 @@ metadata:
     lechaterrant.com/stack: traefik
   annotations:
     lechaterrant.com/load-balancer: traefik
+
     # Add here the id of the load balancer to use
     # The ID is output by terraform scripts
     kubernetes.digitalocean.com/load-balancer-id: fae9a91f-af07-4db3-8b97-d968b5cf5c0d
+
+    # Disown avoid the loadbalancer deletion when the service is deleted
+    # Our load balancer is part of the infrastructure and is not directly managed by kubernetes
+    service.kubernetes.io/do-loadbalancer-disown: "true"
 spec:
   type: LoadBalancer
   selector:

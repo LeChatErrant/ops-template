@@ -2,6 +2,14 @@ resource "digitalocean_domain" "domain" {
   name = var.domain_name
 }
 
+resource "digitalocean_record" "root" {
+  domain = digitalocean_domain.domain.name
+  name   = "@"
+  type   = "A"
+  value  = digitalocean_loadbalancer.load-balancer.ip
+  ttl    = 30
+}
+
 resource "digitalocean_record" "traefik" {
   domain = digitalocean_domain.domain.name
   name   = "traefik"

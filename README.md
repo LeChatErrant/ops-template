@@ -138,9 +138,9 @@ With it, you don't need to do manual actions on a cloud provider dashboard, redu
 **Congratulation**, you just deployed a whole infrastructure on Digital Ocean, including
  - Digital ocean root project
  - K8S autoscaled cluster
- - Load balancer
- - Domain
- - DNS records for subdomains :
+ - Load balancer pointing on K8S nodes
+ - DNS
+ - DNS records pointing on the load balancer for subdomains :
    - traefik.example.com
    - argocd.example.com
    - kibana.example.com

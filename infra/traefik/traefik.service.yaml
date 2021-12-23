@@ -11,11 +11,7 @@ metadata:
 
     # Add here the id of the load balancer to use
     # The ID is output by terraform scripts
-    kubernetes.digitalocean.com/load-balancer-id: fae9a91f-af07-4db3-8b97-d968b5cf5c0d
-
-    # Disown avoid the loadbalancer deletion when the service is deleted
-    # Our load balancer is part of the infrastructure and is not directly managed by kubernetes
-    service.kubernetes.io/do-loadbalancer-disown: "true"
+    kubernetes.digitalocean.com/load-balancer-id: a97564fe-89c7-4635-827f-3179af26dfad
 spec:
   type: LoadBalancer
   selector:

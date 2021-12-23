@@ -8,19 +8,15 @@ metadata:
     lechaterrant.com/stack: traefik
   annotations:
     lechaterrant.com/load-balancer: traefik
-
-    # Add here the id of the load balancer to use
-    # The ID is output by terraform scripts
-    kubernetes.digitalocean.com/load-balancer-id: a97564fe-89c7-4635-827f-3179af26dfad
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     lechaterrant.com/app: traefik
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30000
+      nodePort: 30080
       name: web
     - protocol: TCP
       port: 443

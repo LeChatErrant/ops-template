@@ -20,17 +20,19 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
     auto_scale = true
     min_nodes  = 2
     max_nodes  = 5
+    tags = ["ops-template-droplet"]
   }
 }
 
 resource "digitalocean_loadbalancer" "load-balancer" {
   name   = "load-balancer"
   region = "fra1"
+  droplet_tag = "ops-template-droplet"
 
   forwarding_rule {
     entry_port      = 80
     entry_protocol  = "tcp"
-    target_port     = 30000
+    target_port     = 30080
     target_protocol = "tcp"
   }
 
@@ -42,7 +44,7 @@ resource "digitalocean_loadbalancer" "load-balancer" {
   }
 
   healthcheck {
-    port     = 30000
+    port     = 30080
     protocol = "tcp"
   }
 }

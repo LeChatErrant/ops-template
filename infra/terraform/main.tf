@@ -12,7 +12,7 @@ resource "digitalocean_project" "ops-template" {
 resource "digitalocean_kubernetes_cluster" "cluster" {
   name    = "cluster"
   region  = "fra1"
-  version = "1.21.5-do.0"
+  version = "1.20.2-do.0"
 
   node_pool {
     name       = "autoscaled-worker-pool"
